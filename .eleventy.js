@@ -25,6 +25,10 @@ async function imageShortcode(src, alt, sizes, classes) {
 }
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addPassthroughCopy({
+    "src/public": "/"
+  });
+  
   eleventyConfig.addWatchTarget("./src");
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
 
@@ -42,13 +46,10 @@ module.exports = function(eleventyConfig) {
     }
   });
 
-  eleventyConfig.addPassthroughCopy({
-    "public": "/"
-  });
 
   eleventyConfig.on('afterBuild', () => {
     require('esbuild').buildSync({
-      entryPoints: ['./scripts/index.js'],
+      entryPoints: ['./src/scripts/index.js'],
       bundle: true,
       minify: prod,
       outfile: '_site/index.js',
@@ -57,7 +58,7 @@ module.exports = function(eleventyConfig) {
 
   return {
     dir: {
-      input: "pages",
+      input: "src/pages",
       includes: "../components",
     }
   }
