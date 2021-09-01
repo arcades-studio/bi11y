@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  @media screen and (min-width: 500px) {
+    flex-flow: row nowrap;
+  }
+}
+ 
+.billy-image,
+.ikea-b {
+  width: 100%;
+  height: auto;
+   
+  @media screen and (min-width: 500px) {
+    max-height: 80vh;
+    height: 40vw;
+    width: auto;
+  }
+}
+
+.billy-image {
+  margin-right: auto;
+}
+
+a:link,
+a:visited {
+  padding: .25rem .75rem;
+  background-color: white;
+  border-radius: 1rem;
+  text-decoration: none;
+  box-shadow: 0px 0px 6px #00000045;
+  color: inherit;
+  transition: background-color 350ms ease-in-out;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+
+  @media screen and (min-width: 500px) {
+    position: relative;
+    top: 0;
+    right: 0;
+  }
+}
+
+a:hover,
+a:active {
+  background-color: #FFDA1A;
+}
