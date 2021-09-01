@@ -23,7 +23,7 @@ if (prod) {
 
 async function imageShortcode(src, alt, sizes, classes) {
   let metadata = await Image(src, {
-    widths: prod ? [200, 400, 600, 800, 1000, 1400, 1600] : [1000, 1400, 1600],
+    widths: prod ? [200, 400, 600, 800, 1000, 1400, 1600] : [1600],
     formats: prod ? ["webp", "jpeg"] : ["webp"],
     outputDir: "./_site/img",
   });
