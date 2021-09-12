@@ -11,3 +11,4 @@ An 11ty starter for people who like this exact 11ty starter (me)
 [ ] Support multiple CSS outfiles
 [ ] Sitemap generation
 [x] Data folder config
+[ ] Typeset plugin
