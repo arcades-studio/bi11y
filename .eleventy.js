@@ -81,6 +81,7 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: "src/pages",
       includes: "../components",
+      data: "../data"
     },
   };
 };
