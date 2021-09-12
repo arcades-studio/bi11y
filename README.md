@@ -9,3 +9,5 @@ An 11ty starter for people who like this exact 11ty starter (me)
 
 ## To do
 [ ] Support multiple CSS outfiles
+[ ] Sitemap generation
+[ ] Data folder config
