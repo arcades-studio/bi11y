@@ -5,6 +5,35 @@ There are many, _many_ 11ty starters. A lot of them are great! Some of them aren
 
 ![Ikea Billy Bookshelf](https://www.ikea.com/us/en/images/products/billy-bookcase-birch-veneer__0644259_pe702538_s5.jpg?f=xl)
 
+# Setup
+Download, `npm i` and you're good to go.
+
+# Commands 
+```
+npm run dev
+```
+Launch dev server, watch for changes.
+
+```
+npm run build
+```
+Build for production.
+
+# Structure
+```
+...
+package.json
+.eleventy.js [11ty config]
+postcss.config.js [postcss config]
+└ 📁 src
+  └ 📁 components [includes]
+  └ 📁 data [global data]
+  └ 📁 pages [page templates]
+  └ 📁 public [assets, copied to root]
+  └ 📁 scripts [js]
+  └ 📁 styles [css, set entrypoint(s) in postcss.config.js]
+```  
+
 ## To do
 [ ] Fetch example in data file\
 [x] Support multiple CSS in/out files\
