@@ -8,7 +8,8 @@ An 11ty starter for people who like this exact 11ty starter (me)
 ![Ikea Billy Bookshelf](https://www.ikea.com/us/en/images/products/billy-bookcase-birch-veneer__0644259_pe702538_s5.jpg?f=xl)
 
 ## To do
-[ ] Support multiple CSS outfiles
-[ ] Sitemap generation
-[x] Data folder config
-[ ] Typeset plugin
+[ ] Sitemap generation\
+[ ] Fetch example in data file\
+[x] Support multiple CSS in/out files\
+[x] Typeset plugin\
+[x] Data folder config\
