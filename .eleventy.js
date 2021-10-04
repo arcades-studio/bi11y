@@ -1,30 +1,18 @@
 const prod = process.env.NODE_ENV === "production";
 let fs = require("fs");
-const Image = require("@11ty/eleventy-img");
+let path = require("path");
+let postcssConfig = require("./postcss.config");
 let Postcss = require("postcss");
+let EsBuild = require("esbuild");
+
+const Image = require("@11ty/eleventy-img");
 const metagen = require("eleventy-plugin-metagen");
-
-let postcssPlugins = [
-  require("postcss-import")(),
-  require("postcss-normalize")({
-    forceImport: "normalize.css",
-  }),
-  require("postcss-nested"),
-  require("postcss-preset-env")(),
-];
-
-if (prod) {
-  postcssPlugins.push(
-    require("cssnano")({
-      preset: "default",
-    })
-  );
-}
+const typesetPlugin = require("eleventy-plugin-typeset");
 
 async function imageShortcode(src, alt, sizes, classes) {
   let metadata = await Image(src, {
-    widths: prod ? [200, 400, 600, 800, 1000, 1400, 1600] : [1600],
-    formats: prod ? ["webp", "jpeg"] : ["webp"],
+    widths: [200, 400, 600, 800, 1000, 1400, 1600],
+    formats: ["webp", "jpeg"],
     outputDir: "./_site/img",
   });
 
@@ -37,26 +25,21 @@ async function imageShortcode(src, alt, sizes, classes) {
   return Image.generateHTML(metadata, imageAttributes);
 }
 
-function afterBuild() {
-  require("esbuild").buildSync({
-    entryPoints: ["./src/scripts/index.js"],
-    bundle: true,
-    minify: prod,
-    outfile: "_site/index.js",
-  });
+function processCssFile(file) {
+  const basename = path.basename(file);
 
-  fs.readFile("./src/styles/main.css", "utf8", (err, data) => {
+  fs.readFile(`./${path.normalize(file)}`, "utf8", (err, data) => {
     if (err) {
       console.log(err);
       return;
     } else {
-      Postcss(postcssPlugins)
+      Postcss(postcssConfig.plugins)
         .process(data, {
-          from: `src/styles/main.css`,
-          to: `_site/styles.css`,
+          from: file,
+          to: `_site/${basename}`,
         })
         .then((result) => {
-          fs.writeFile(`./_site/styles.css`, result.css, (err) => {
+          fs.writeFile(`./_site/${basename}`, result.css, (err) => {
             if (err) {
               console.log(err);
               return;
@@ -67,6 +50,19 @@ function afterBuild() {
   });
 }
 
+function afterBuild() {
+  EsBuild.buildSync({
+    entryPoints: ["./src/scripts/index.js"],
+    bundle: true,
+    minify: prod,
+    outfile: "_site/index.js",
+  });
+  
+
+  postcssConfig.entryPoints.forEach((entryPoint) => {
+    processCssFile(entryPoint)});
+}
+
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "src/public": "/",
@@ -75,13 +71,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src");
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addPlugin(metagen);
+  eleventyConfig.addPlugin(typesetPlugin());
   eleventyConfig.on("afterBuild", afterBuild);
 
   return {
     dir: {
       input: "src/pages",
       includes: "../components",
-      data: "../data"
+      data: "../data",
     },
   };
 };
