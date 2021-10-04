@@ -12,4 +12,4 @@ An 11ty starter for people who like this exact 11ty starter (me)
 [ ] Fetch example in data file\
 [x] Support multiple CSS in/out files\
 [x] Typeset plugin\
-[x] Data folder config\
+[x] Data folder config
