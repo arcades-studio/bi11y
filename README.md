@@ -36,6 +36,7 @@ postcss.config.js [postcss config]
 
 ## To do
 [ ] Fetch example in data file\
+[ ] Lazyloading option for image shortcode\
 [x] Support multiple CSS in/out files\
 [x] Typeset plugin\
 [x] Data folder config
