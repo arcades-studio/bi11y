@@ -10,16 +10,16 @@
   },
   "author": "Jake Brussel Faria",
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "@11ty/eleventy-img": "^0.9.0",
+    "@11ty/eleventy": "^1.0.0",
+    "@11ty/eleventy-img": "^1.0.0",
     "cssnano": "^5.0.7",
-    "eleventy-plugin-metagen": "^1.4.0",
-    "eleventy-plugin-typeset": "github:liamfiddler/eleventy-plugin-typeset",
-    "esbuild": "^0.12.19",
+    "eleventy-plugin-metagen": "^1.5.2",
+    "eleventy-plugin-typeset": "github:arcades-studio/eleventy-plugin-typeset-again",
+    "esbuild": "^0.14.11",
     "postcss": "^8.3.6",
     "postcss-import": "^14.0.2",
     "postcss-nested": "^5.0.6",
-    "postcss-preset-env": "^6.7.0"
+    "postcss-preset-env": "^7.2.3"
   },
   "dependencies": {
     "modern-normalize": "^1.1.0"
