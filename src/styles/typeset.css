@@ -1,0 +1,36 @@
+/*
+ Small Capitals
+ https://en.wikipedia.org/wiki/Small_caps 
+*/
+
+.small-caps {font-variant: small-caps;}
+
+/*
+ Optical margin alignment for particular letters 
+ https://en.wikipedia.org/wiki/Optical_margin_alignment
+*/
+
+.pull-T, .pull-V, .pull-W, .pull-Y {margin-left: -0.05em}
+.push-T, .push-V, .push-W, .push-Y {margin-right: 0.05em}
+
+.pull-O, .pull-C, .pull-o, .pull-c {margin-left: -0.03em}
+.push-O, .push-C, .push-o, .push-c {margin-right: 0.03em}
+
+.pull-A {margin-left: -0.02em}
+.push-A {margin-right: 0.02em}
+
+/* 
+ Quotation mark 
+ https://en.wikipedia.org/wiki/Quotation_mark) 
+*/
+
+/* Single quotation marks (') */
+.pull-single{margin-left:-.18em}
+.push-single{margin-right:.18em}
+
+.pull-double, .push-double,
+.pull-single, .push-single {display: inline-block}
+
+/* Double quotation marks (") */
+.pull-double{margin-left:-.3em}
+.push-double{margin-right:.3em}

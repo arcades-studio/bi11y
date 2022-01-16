@@ -1,5 +1,5 @@
 @import 'modern-normalize';
-@import './import.css';
+@import './typeset.css';
 
 body {
   font-family: Arial, Helvetica, sans-serif;
