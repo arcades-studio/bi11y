@@ -35,11 +35,11 @@ postcss.config.js [postcss config]
 ```  
 
 ## To do
-- [ ] Update to 11ty 1.0
 - [ ] Fetch example in data file
 - [ ] Lazyloading option for image shortcode
-- [ ] Freshen deps.
 - [ ] Automatically process all files in `/scripts` or `/styles` _unless_ configured otherwise.
+- [x] Update to 11ty 1.0
+- [x] Freshen deps.
 - [x] Support multiple CSS in/out files
 - [x] Typeset plugin
 - [x] Data folder config
